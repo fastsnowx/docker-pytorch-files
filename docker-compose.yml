@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: "Dockerfile"
+    command: --gpus all --shm-size 8gb
+    volumes:
+      - .:/workspace:cached
+      - /home/hrdathaw/data:/data
+      - /mnt/d/outputs:/outputs

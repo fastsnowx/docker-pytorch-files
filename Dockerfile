@@ -1,5 +1,7 @@
 FROM nvidia/cuda:11.3.0-runtime-ubuntu20.04
 WORKDIR /workspace
+RUN useradd -m -d /home/dev-user -s /bin/bash dev-user
+USER dev-user
 RUN apt-get update
 RUN apt-get install -y software-properties-common tzdata
 ENV TZ=Asia/Tokyo 
