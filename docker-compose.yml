@@ -8,7 +8,7 @@ services:
     command: --shm-size 8gb
     volumes:
       - .:/workspace:cached
-      # - /home/hrdathaw/data:/data
+      # mount output dir
       - /mnt/d/outputs:/outputs
     deploy:
       resources:
