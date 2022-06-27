@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: "Dockerfile"
+    command: --shm-size 8gb
+    volumes:
+      - .:/workspace:cached
+      # mount output dir
+      - /mnt/d/outputs:/outputs
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
