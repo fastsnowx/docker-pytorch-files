@@ -7,10 +7,13 @@ services:
       dockerfile: "Dockerfile"
     command: --shm-size 8gb
     volumes:
-      - ./src:/workspace/src:cached
-      - ./data:/workspace/data
+      # - /etc/group:/etc/group:ro
+      # - /etc/passwd:/etc/passwd:ro
+      - ./apps:/workspace:cached
+      - ../src:/workspace/src
+      - ../data:/workspace/data
       # mount output dir
-      - /mnt/d/experiments/:/outputs
+      - /mnt/d/experiments/:/saves
     deploy:
       resources:
         reservations:
